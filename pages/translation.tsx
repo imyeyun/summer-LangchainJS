@@ -4,7 +4,7 @@ import { IMessage, UserType, ISendMessage } from "@/interfaces/message";
 const Translation = () => {
   //사용자 입력 채팅 메시지 상태값 정의 및 초기화
   const [message, setMessage] = useState<ISendMessage>({
-    role: "사용자 메시지를 영어로 번역해주세요.",
+    role: "사용자 메시지를 영어로 번역해주세요..",
     message: "",
   });
 
