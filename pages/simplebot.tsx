@@ -11,13 +11,16 @@ const SimpleBot = () => {
   //메시지 전송 버튼 클릭시 메시지 백엔드 API 전송하기
   const messageSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    //백엔드로 사용자 메시지를 전송하기 전에 사용
     const userMessage: IMessage = {
       user_type: UserType.USER,
       message: message,
-      send_date: Date.now().toString(),
+      send_date: new Date(),
     };
-    //백엔드로 사용자 입력메세지를 전송하기 전에 사용자 메시지를 메시지 목록에 추가하여
-    // 화면에 사용자 입력 정보를 출력한다. 왜? 여기서? 현재 websocket 기반 실시간 통신이 아니기 떄문에
+
+    //백엔드로 사용자 입력메시지를 전송하기전에 사용자 메시지를 메시지목록에 추가하여
+    //화면에 사용자 입력 정보를 출력한다. 왜? 여기서? 현재 WebSocket기반 실시간 통신이 아니기 떄문에
     //백엔드에서 두번에 응답을 받아올수 없어서 그래용..
     setMessageList((prev) => [...prev, userMessage]);
 
